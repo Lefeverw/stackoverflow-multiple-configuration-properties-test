@@ -27,9 +27,9 @@ class MyConfigTest {
         final Yaml yaml = new Yaml();
         final Object map = yaml.load(resource.getInputStream());
         final ObjectWriter ow = new ObjectMapper().writer();
-        final String componentPageDescriptorString = ow.writeValueAsString(map);
+        final String myConfigAsString = ow.writeValueAsString(map);
         final MyConfig myConfig = new ObjectMapper()
-                .readValue(componentPageDescriptorString, MyConfig.class);
+                .readValue(myConfigAsString, MyConfig.class);
         System.out.println(myConfig.getProperties());
     }
 }
